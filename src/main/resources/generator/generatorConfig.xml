@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
+    <classPathEntry  location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <!--引入分页查询插件-->
+        <plugin type="org.linweiyu.PaginationPlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+        <!--数据库连接驱动类,URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3308/test?serverTimezone=CTT"
+                        userId="root" password="12345">
+            <!--MySQL 不支持 schema 或者 catalog 所以需要添加这个,，
+            不然会出现查到mysql内部信息库的表（(sys, information_schema, performance_schema, etc.），
+            同时也可以避免查到不同库的同名表-->
+            <!--参考 : http://www.mybatis.org/generator/usage/mysql.html-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成(实体)模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.gupt.demo.entity" targetProject="demo">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成XML映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="resources.mapper" targetProject="demo">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO接口的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.gupt.demo.mapper" targetProject="demo">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <!--<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!-- 多个表，就写多个table-->
+      <!--   <table tableName="crm_resource" domainObjectName="Resource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            是否生成分页查询代码
+            <property name="generate.pagination" value="true"/>
+        </table> -->
+        
+         <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!-- 是否生成分页查询代码 -->
+            <property name="generate.pagination" value="true"/>
+        </table>
+    </context>
+
+</generatorConfiguration>

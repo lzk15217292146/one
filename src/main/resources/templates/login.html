@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<style>
+	ul li{
+		list-style:none;
+	}
+</style>
+
+</head>
+<body>
+	<div>
+	<form name="form"  accept-charset="utf-8" action="/user/dologin">
+		<ul>
+			<li>
+				<label>用户名：</label>
+				<div>
+					<input type="text" id="userName" name="userName"  maxlength="16" />
+				</div>
+			</li>
+			
+			<li>
+				<label>密码：</label>
+				<div>
+					<input type="password" id="password"  name="password"  maxlength="16"/>
+				</div>
+			</li>
+			<li>
+				<div>
+					<input type="submit" value="登录"/>
+					
+				</div>
+			</li>
+		</ul>
+		</form>
+		<a href="register">注册</a>
+	</div>
+	
+
+</body>
+</html>

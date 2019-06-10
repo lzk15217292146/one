@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册</title>
+<style>
+ul li {
+	list-style: none;
+}
+</style>
+
+</head>
+<body>
+	<div>
+		<form name="form" accept-charset="utf-8" action="/user/doRegister">
+			<ul>
+				<li>
+					<label>地区：</label>
+					<div>
+						<input type="text" id="address" name="address" maxlength="16" />
+					</div>
+				</li>
+
+				<li>
+					<label>性别：</label>
+					<div>
+						<input type="text" id="gender" name="gender"
+							maxlength="16" />
+					</div>
+				</li>
+				<li>
+					<label>手机号码：</label>
+					<div>
+						<input type="text" id="phone" name="phone"
+							maxlength="16" />
+					</div>
+				</li>
+				<li><label>用户名：</label>
+					<div>
+						<input type="text" id="userName" name="userName"
+							maxlength="16" />
+					</div></li>
+				<li><label>密码：</label>
+					<div>
+						<input type="password" id="password" name="password"
+							maxlength="16" />
+					</div></li>
+
+				<li>
+					<div>
+						<input type="submit" value="注册" />
+
+					</div>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+
+</body>
+</html>
